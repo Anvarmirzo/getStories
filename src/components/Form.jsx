@@ -39,7 +39,7 @@ export function Form() {
 			</button>
 			{Object.keys(stories).length ? (
 				<div className='success'>
-					<p className='success__title'>Даты последних сторисов:</p>
+					<p className='success__title'>Dates of the last stories:</p>
 					{stories.reels_media[0] ? (
 						<ol className='success__list'>
 							{stories.reels_media[0]?.items.map((item) => {
@@ -48,7 +48,7 @@ export function Form() {
 							})}
 						</ol>
 					) : (
-						<p className=''>У текущего пользователя нет сторисов</p>
+						<p className=''>The current user has no stories</p>
 					)}
 				</div>
 			) : null}
