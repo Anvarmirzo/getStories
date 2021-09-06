@@ -1,17 +1,21 @@
 .success {
 	text-align: center;
 	background-color: #28a745;
+	padding: 1.25rem;
+	border-radius: 1.875rem;
+}
+
+.success p {
 	color: #fff;
-	padding: 20px;
-	border-radius: 30px;
 }
 
 .success__title {
-	margin-bottom: 15px;
-	font-size: 18px;
+	margin-bottom: 0.938rem;
+	font-size: 1.125rem;
 }
 
 .success__list li {
-	margin-bottom: 5px;
-	font-size: 18px;
+	margin-bottom: 0.313rem;
+	font-size: 1.125rem;
+	color: #fff;
 }

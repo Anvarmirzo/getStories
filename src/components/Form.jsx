@@ -12,12 +12,17 @@ export function Form() {
 
 	const formSubmitHandler = (e) => {
 		e.preventDefault();
-		dispatch(fetchStories(userName));
+		if (e.target[0].value) {
+			dispatch(fetchStories(userName));
+		} else {
+			alert('Fill in the field');
+		}
 	};
 
 	const inputChangeHandler = (e) => {
-		setUserName(e.target.value);
+		setUserName(e.target.value.replace(/\s+/gi, ''));
 	};
+
 	return (
 		<form className='form' onSubmit={(e) => formSubmitHandler(e)}>
 			<span className='input__wrapper'>
@@ -35,12 +40,16 @@ export function Form() {
 			{Object.keys(stories).length ? (
 				<div className='success'>
 					<p className='success__title'>Даты последних сторисов:</p>
-					<ol className='success__list'>
-						{stories.reels_media[0].items.map((item) => {
-							let date = new Date(item.taken_at * 1000);
-							return <li key={date}>{date.toLocaleDateString()}</li>;
-						})}
-					</ol>
+					{stories.reels_media[0] ? (
+						<ol className='success__list'>
+							{stories.reels_media[0]?.items.map((item) => {
+								let date = new Date(item.taken_at * 1000);
+								return <li key={date}>{date.toLocaleDateString()}</li>;
+							})}
+						</ol>
+					) : (
+						<p className=''>У текущего пользователя нет сторисов</p>
+					)}
 				</div>
 			) : null}
 		</form>

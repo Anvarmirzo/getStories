@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { headers, URL } from '../../helpers/API';
-import { SET_LOADED, SET_STORIES } from '../types';
+import { NOT_FOUND_STORIES, SET_LOADED, SET_STORIES } from '../types';
 
 export const fetchStories = (userName) => (dispatch) => {
 	dispatch({
@@ -26,6 +26,7 @@ export const fetchStories = (userName) => (dispatch) => {
 		})
 		.catch(function (error) {
 			console.error(error);
+			dispatch(setNotFoundStories(error));
 		});
 };
 
@@ -33,3 +34,9 @@ export const setStories = (items) => ({
 	type: SET_STORIES,
 	payload: items,
 });
+export const setNotFoundStories = (items) => {
+	return {
+		type: NOT_FOUND_STORIES,
+		payload: items,
+	};
+};
