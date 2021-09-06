@@ -1,0 +1,29 @@
+.main {
+	padding-top: 4.688rem;
+}
+
+.main__title {
+	font-size: 2.5rem;
+	text-align: center;
+	margin-bottom: 0.5rem;
+}
+
+.main__title--active {
+	display: block;
+	color: #ff2c55;
+}
+
+.main__subtitle {
+	text-align: center;
+	width: 83.33%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 3.125rem;
+}
+
+@media screen and (max-width:768px) {
+	.main__subtitle {
+		width: 100%;
+		margin-bottom: 1.563rem;
+	}
+}
